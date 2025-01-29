@@ -7,15 +7,15 @@ export const productAPI = createApi({
     tagTypes: ["product"],
     endpoints: (builder) => ({
         latestProducts: builder.query<AllProductResponse, string>({
-            query: () => "latestProducts",
+            query: () => ({url: "latestProducts", credentials: "include"}),
             providesTags: ["product"]
         }),
         allProducts: builder.query<AllProductResponse, string>({
-            query: (id) => `admin/products?id=${id}`,
+            query: (id) => ({url: `admin/products?id=${id}`, credentials: "include"}),
             providesTags: ["product"]
         }),
         categories: builder.query<CategoriesResponse, string>({
-            query: () => `categories`,
+            query: () => ({url: `categories`, credentials: "include"}),
             providesTags: ["product"]
         }),
         searchProducts: builder.query<SearchProductsResponse, SearchProductsRequest>({
@@ -25,12 +25,12 @@ export const productAPI = createApi({
                 if (price) base += `&price=${price}`;
                 if (sort) base += `&sort=${sort}`;
                 if (category) base += `&category=${category}`;
-                return base;
+                return ({url: base, credentials: "include"});
             },
             providesTags: ["product"]
         }),
         productDetails: builder.query<ProductResponse, string>({
-            query: (id) => id,
+            query: (id) => ({url: id, credentials: "include"}),
             providesTags: ["product"]
         }),
         newProduct: builder.mutation<MessageResponse, NewPorductRequest>({
@@ -38,6 +38,7 @@ export const productAPI = createApi({
                 url: `newProduct?id=${id}`,
                 method: "POST",
                 body: formData,
+                credentials: "include"
             }),
             invalidatesTags: ["product"]
         }),
@@ -46,6 +47,7 @@ export const productAPI = createApi({
                 url: `${productId}?id=${userId}`,
                 method: "PUT",
                 body: formData,
+                credentials: "include"
             }),
             invalidatesTags: ["product"]
         }),
@@ -53,6 +55,7 @@ export const productAPI = createApi({
             query: ({ userId, productId}) => ({
                 url: `${productId}?id=${userId}`,
                 method: "DELETE",
+                credentials: "include"
             }),
             invalidatesTags: ["product"]
         }),

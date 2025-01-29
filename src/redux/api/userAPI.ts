@@ -14,6 +14,7 @@ export const userAPI = createApi({
                 url: "newUser",
                 method: "POST",
                 body: user,
+                credentials: "include"
             }),
             invalidatesTags: ['users']
         }),
@@ -21,11 +22,12 @@ export const userAPI = createApi({
             query: ({userId, adminUserId}) => ({
                 url: `${userId}?id=${adminUserId}`,
                 method: "DELETE",
+                credentials: "include"
             }),
             invalidatesTags: ['users']
         }),
         allUsers: builder.query<AllUsersResponse, string>({
-            query: (id) => `all?id=${id}`,
+            query: (id) => ({url: `all?id=${id}`, credentials: "include"}),
             providesTags: ["users"],
             }),
     }),
@@ -33,7 +35,7 @@ export const userAPI = createApi({
 
 export const getUser = async (id: string) => {
     try{
-        const {data}: {data: UserResponse} = await axios.get(`${import.meta.env.VITE_SERVER}/api/v1/user/${id}`);
+        const {data}: {data: UserResponse} = await axios.get(`${import.meta.env.VITE_SERVER}/api/v1/user/${id}`, {withCredentials: true});
         return data;
     }catch(e){
         console.log(e);

@@ -12,6 +12,7 @@ export const orderAPI = createApi({
                     url: 'new',
                     method: 'POST',
                     body: order,
+                    credentials: 'include',
                 };
             },
             invalidatesTags: ['orders'],
@@ -21,6 +22,7 @@ export const orderAPI = createApi({
                 return {
                     url: `${orderId}?id=${userId}`,
                     method: 'PUT',
+                    credentials: 'include',
                 };
             },
             invalidatesTags: ['orders'],
@@ -30,20 +32,21 @@ export const orderAPI = createApi({
                 return {
                     url: `${orderId}?id=${userId}`,
                     method: 'DELETE',
+                    credentials: 'include',
                 };
             },
             invalidatesTags: ['orders'],
         }),
         allOrders: builder.query<AllOrdersResponse, string>({
-            query: (id) => `all?id=${id}`,
+            query: (id) => ({url: `all?id=${id}`, credentials: 'include'}),
             providesTags: ['orders'],
         }),
         myOrder: builder.query<AllOrdersResponse, string>({
-            query: (id) => `my?id=${id}`,
+            query: (id) => ({url: `my?id=${id}`, credentials: 'include'}),
             providesTags: ['orders'],
         }),
         OrderDetails: builder.query<OrederDetailsResponse, string>({
-            query: (id) => id,
+            query: (id) => ({url: id, credentials: 'include'}),
             providesTags: ['orders'],
         }),
     }),
