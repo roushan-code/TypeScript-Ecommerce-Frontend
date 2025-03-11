@@ -67,18 +67,18 @@
         left: 0;
         background-color: #0000006b;
         @include flex;
-        button {
+        button,a {
             @include flex;
             @include square(3rem);
             border-radius: 100%;
             border: none;
-            background-color: $color3;
+            background-color: rgb(45 162 3);
             cursor: pointer;
             color: $color1;
             font-size: 1.1rem;
             transition: all 0.3s;
             &:hover{
-                rotate: 20deg;
+                opacity: 0.8;
             }
         }
 

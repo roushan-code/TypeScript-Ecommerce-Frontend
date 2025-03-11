@@ -1,4 +1,6 @@
+import { BsBoxArrowUpRight } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { CartItems } from "../types/types";
 
 type ProductProps = {
@@ -22,6 +24,7 @@ const ProductCard = ({ productId, photo, name, price, stock, handler }: ProductP
       <button onClick={()=> handler({ productId, photo, name, price, stock, quantity: 1 })}>
         <FaPlus/>
       </button>
+      <Link to={`/product/${productId}`}><BsBoxArrowUpRight /></Link>
      </div>
     </div>
   )

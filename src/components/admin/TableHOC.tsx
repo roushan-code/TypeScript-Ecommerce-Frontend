@@ -71,9 +71,9 @@ function TableHOC<T extends Object>(
               prepareRow(row);
 
               return (
-                <tr {...row.getRowProps()}>
+                <tr {...row.getRowProps()} key={row.id}>
                   {row.cells.map((cell) => (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    <td {...cell.getCellProps()} key={cell.column.id}>{cell.render("Cell")}</td>
                   ))}
                 </tr>
               );

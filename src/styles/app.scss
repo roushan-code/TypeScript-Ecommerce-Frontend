@@ -10,6 +10,13 @@
   box-sizing: border-box;
 }
 
+button{
+&:disabled{
+  cursor: not-allowed !important;
+  opacity: 0.5;
+}
+}
+
 body {
   user-select: none;
 }
@@ -37,17 +44,19 @@ $color3: rgb(0, 104, 136);
 
 @import "admin-styles/mixin";
 
-@import "_home";
-@import "_cart";
-@import "_shipping";
-@import "_login";
-@import "_search";
+@import "home";
+@import "cart";
+@import "shipping";
+@import "login";
+@import "search";
+@import "product-details";
 
 @import "admin-styles/dashboard";
 @import "admin-styles/products";
 @import "admin-styles/chart";
 @import "admin-styles/dashboardapp";
 @import "admin-styles/mediaquery";
+
 
 .container {
   max-width: 1367px;
@@ -130,7 +139,7 @@ $color3: rgb(0, 104, 136);
 
 .admin-container {
   @include grid(1fr 4fr, 2rem);
-  height: 100vh;
+  // height: 100vh;
   background-color: rgb(247, 247, 247);
 
   >aside {

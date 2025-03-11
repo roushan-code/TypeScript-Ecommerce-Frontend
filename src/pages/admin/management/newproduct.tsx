@@ -1,10 +1,11 @@
-import { ChangeEvent, useState } from "react";
-import AdminSidebar from "../../../components/admin/AdminSidebar";
+import { useFileHandler } from '6pp';
+import { useState } from "react";
 import { useSelector } from "react-redux";
-import { UserReducerInitialState } from "../../../types/reducer-type";
-import { useNewProductMutation } from "../../../redux/api/productAPI";
-import { responseToast } from "../../../utils/features";
 import { useNavigate } from "react-router-dom";
+import AdminSidebar from "../../../components/admin/AdminSidebar";
+import { useNewProductMutation } from "../../../redux/api/productAPI";
+import { UserReducerInitialState } from "../../../types/reducer-type";
+import { responseToast } from "../../../utils/features";
 
 const NewProduct = () => {
   const { user } = useSelector((
@@ -18,41 +19,42 @@ const navigate = useNavigate();
   const [category, setCategory] = useState<string>("");
   const [price, setPrice] = useState<number>(1000);
   const [stock, setStock] = useState<number>(1);
-  const [photoPrev, setPhotoPrev] = useState<string>("");
-  const [photo, setPhoto] = useState<File>();
+  const [isDisable, setIsDisable] = useState(false);
+  const [description, setDescription] = useState<string>("");
 
   const [newProduct]  = useNewProductMutation();
 
-  const changeImageHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const file: File | undefined = e.target.files?.[0];
-
-    const reader: FileReader = new FileReader();
-
-    if (file) {
-      reader.readAsDataURL(file);
-      reader.onloadend = () => {
-        if (typeof reader.result === "string") {
-          setPhotoPrev(reader.result);
-          setPhoto(file);
-        }
-      };
-    }
-  };
+  const photos  = useFileHandler('multiple', 10, 5);
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsDisable(true);
+
+    if(!name || !category || !price || !stock )
+      return 
+
+    if(!photos.file || photos.file.length === 0) return;
+    
     
     const formData = new FormData();
     formData.append("name", name);
+    formData.append("description", description);
     formData.append("category", category);
     formData.append("price", price.toString());
     formData.append("stock", stock.toString());
-    formData.append("files", photo!);
+    // formData.append("files", photo!);
+    photos.file.forEach(photo => {
+      formData.append("files", photo);
+    })
     try {
       const res = await newProduct({ formData, id: user?._id! });
       responseToast(res, navigate,"/admin/product");
+      setIsDisable(false);
+
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsDisable(false);
     }
   };
 
@@ -71,6 +73,15 @@ const navigate = useNavigate();
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>Description</label>
+              <textarea 
+              required
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
               />
             </div>
             <div>
@@ -107,11 +118,19 @@ const navigate = useNavigate();
 
             <div>
               <label>Photo</label>
-              <input required type="file" onChange={changeImageHandler} />
+              <input required type="file" multiple onChange={photos.changeHandler} />
             </div>
 
-            {photoPrev && <img src={photoPrev} alt="New Image" />}
-            <button type="submit">Create</button>
+            {
+              photos.error && <p>{photos.error}</p>
+            }
+            {
+              photos.preview && photos.preview.map((img, i) => (
+                <img src={img} alt="New Image" key={i} />
+              ))
+            }
+
+            <button type="submit" disabled={isDisable}>Create</button>
           </form>
         </article>
       </main>

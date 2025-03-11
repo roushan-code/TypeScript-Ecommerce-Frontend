@@ -18,7 +18,21 @@ export type Product = {
     price: number;
     stock: number;
     category: String;
+    description: string;
+    ratings: number;
+    numOfReviews: number;
 }
+export type Review = {
+    rating: number;
+    comment: string;
+    product: string;
+    user: {
+      name: string;
+      photo: string;
+      _id: string;
+    };
+    _id: string;
+  };
 export type ShippingInfo = {
     address: string;
     city: string;
@@ -120,3 +134,9 @@ export type Line = {
     discount: number[];
     revenue: number[];
 }
+
+export type CouponType = {
+    code: string;
+    amount: number;
+    _id: string;
+  };
