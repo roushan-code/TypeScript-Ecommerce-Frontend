@@ -3,14 +3,19 @@ Full-Stack Ecommerce with Admin Dashboard & Paytm Payment Gateway.
 
 [Visit Now](https://mern-stack-ecommerce-with-redux.onrender.com/) 🚀
 
+
 ## 🖥️ Tech Stack
 **Frontend:**
 
-![reactjs](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)&nbsp;
-![react-router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)&nbsp;
+
+![typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)&nbsp;
+![sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)&nbsp;
+
+![reactjs](https://img.shields.io/badge/React-7c3aed?style=for-the-badge&logo=react&logoColor=61DAFB)&nbsp;
+![react-router](https://img.shields.io/badge/React_Router-8A2BE2?style=for-the-badge&logo=react-router&logoColor=white)&nbsp;
 ![redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)&nbsp;
 ![mui](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white)&nbsp;
-![chart-js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)&nbsp;
+![chart-js](https://img.shields.io/badge/Chart.js-DC143C?style=for-the-badge&logo=chartdotjs&logoColor=white)&nbsp;
 
 **Backend:**
 
@@ -29,10 +34,7 @@ Full-Stack Ecommerce with Admin Dashboard & Paytm Payment Gateway.
 
 **User Account Management**
 - Login/Signup: 🚪 Users can create an account or log in to an existing one.
-- Update Profile/Password: 🔐 Users can update their profile information and change their passwords.
-  
-**Password Management**
-- Reset Password Mail: 📧 Utilizing Sendgrid, users can reset their passwords via email.
+
   
 **Shopping Cart**
 - Add/Remove Items: 🛒 Users can add items to their shopping cart or remove them as needed.
@@ -61,18 +63,19 @@ Full-Stack Ecommerce with Admin Dashboard & Paytm Payment Gateway.
 - User Management: 👥 Admins can update user data and delete users.
 - Review Management: 📜 Admins can view and delete product reviews.
 - Stock Management: 📉 Product stock is automatically decreased upon shipment.
+- Analyze Data with Different Chats: like line chart, bar chart, pie chart, etc.
 
 ## Sneak Peek of Admin Dashboard 🙈 :
-![Capture](https://res.cloudinary.com/ddxwcwxhl/image/upload/v1719837052/samples/o842ksqkcmwn0bgagrlc.png)
+![Capture](https://res.cloudinary.com/ddxwcwxhl/image/upload/v1742201528/samples/landscapes/mec1n6dgtg8wyttt3zsc.png)
 
 <table>
   <tr>
-    <td><img src="https://res.cloudinary.com/ddxwcwxhl/image/upload/v1719837055/samples/a0mgodgaymzscyemhdan.png" alt="mockup" /></td>
-    <td><img src="https://res.cloudinary.com/ddxwcwxhl/image/upload/v1719837053/samples/vmfkxrsds9dthgbv76kb.png" alt="mockups" /></td>
+    <td><img src="https://res.cloudinary.com/ddxwcwxhl/image/upload/v1742201533/samples/landscapes/mh68onnj56mte4xzeqi6.png" alt="mockup" /></td>
+    <td><img src="https://res.cloudinary.com/ddxwcwxhl/image/upload/v1742201532/samples/landscapes/eo8k7jasbetsqdujh7se.png" alt="mockups" /></td>
   </tr>
   <tr>
-    <td><img src="https://res.cloudinary.com/ddxwcwxhl/image/upload/v1719837053/samples/nila7y50ukny32sz8kbr.png" alt="mockup" /></td>
-    <td><img src="https://res.cloudinary.com/ddxwcwxhl/image/upload/v1719837055/samples/ejymvdfsj18qmptiokbo.png" alt="mockups" /></td>
+    <td><img src="https://res.cloudinary.com/ddxwcwxhl/image/upload/v1742201529/samples/landscapes/f11zhguhbxvl4lzvs8c1.png" alt="mockup" /></td>
+    <td><img src="https://res.cloudinary.com/ddxwcwxhl/image/upload/v1742201534/samples/landscapes/yuquysdqzojllvlywj19.png" alt="mockups" /></td>
   </tr>
 </table>
 
@@ -80,5 +83,5 @@ Full-Stack Ecommerce with Admin Dashboard & Paytm Payment Gateway.
 
 Feel free to reach me through the below handles if you'd like to contact me.
 
-[![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/roushan-singh-645819236/)
-[![instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/roushansingh3698?igshid=MzMyNGUyNmU2YQ==)
+[![linkedin](https://img.shields.io/badge/LinkedIn-1E90FF?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/roushan-singh-645819236/)
+[![instagram](https://img.shields.io/badge/Instagram-FF4500?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/roushansingh3698?igshid=MzMyNGUyNmU2YQ==)
