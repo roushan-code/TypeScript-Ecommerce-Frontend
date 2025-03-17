@@ -8,6 +8,13 @@
       margin: auto;
   
       > section {
+        >div{
+          >div{
+            >img{
+              object-fit: contain !important;
+            }
+          }
+        }
         &:first-of-type {
           width: 40%;
           height: 60vh;
