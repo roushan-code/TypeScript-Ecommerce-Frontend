@@ -16,13 +16,21 @@ const Home = () => {
       return toast.error("Product is out of stock");
 
     dispatch(addToCart(cartItem));
-    
+
     toast.success("Added to cart");
   }
   if (isError) toast.error("can not fetch Product")
   return (
     <div className='home'>
-      <section></section>
+      <section>
+        <img src="https://res.cloudinary.com/ddxwcwxhl/image/upload/v1752034000/samples/ai-generated-8261668_1280_mdblf8.jpg" style={{
+          width: "100%",
+          height: "18.75rem",
+          margin: "auto",
+          objectFit: "cover",
+          objectPosition: "center"
+        }} loading="lazy" alt="" />
+      </section>
       <h1>Latest Products
         <Link to='/search' className="findmore" >More </Link>
         
